@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import {useStyles} from "./style";
 import Carousel from "../../component/carousel/Carousel";
+import {NewsFeedModel} from "./NewsFeedModel";
 
 function Copyright() {
     return (
@@ -30,25 +31,13 @@ function Copyright() {
     );
 }
 
-
-const featuredPosts = [
-    {
-        title: 'Featured post',
-        date: 'Nov 12',
-        description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    },
-    {
-        title: 'Post title',
-        date: 'Nov 11',
-        description:
-            'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    },
-];
-
-
 export default function NewsFeed() {
+    const newsFeedModel = NewsFeedModel();
     const classes = useStyles();
+
+    const {
+        featuredPosts
+    } = newsFeedModel.states;
 
     function render() {
         return (
