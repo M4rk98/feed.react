@@ -1,4 +1,4 @@
-import {signUp} from "../api/UserApi";
+import {signIn, signUp} from "../api/UserApi";
 
 export function UserServiceModel() {
     function postSignUp(data) {
