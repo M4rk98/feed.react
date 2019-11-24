@@ -1,8 +1,5 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -11,29 +8,19 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
-import Link from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import {useStyles} from "./style";
 import Carousel from "../../component/carousel/Carousel";
 import {NewsFeedModel} from "./NewsFeedModel";
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import SignUp from "../sign_up/SignUp";
+import CustomDialog from "../../component/dialog/CustomDIalog";
+import {useToggle} from "../../util/hook/useToggle";
+import {NavigationTop} from "../../layout/NavigationTop";
 
 export default function NewsFeed() {
     const newsFeedModel = NewsFeedModel();
     const classes = useStyles();
+    const toggle = useToggle();
 
     const {
         featuredPosts
@@ -42,38 +29,14 @@ export default function NewsFeed() {
     function render() {
         return (
             <React.Fragment>
-                <CssBaseline />
-                <Container maxWidth="lg">
-                    {renderHeader()}
+                <NavigationTop>
                     {renderPosts()}
-                </Container>
-                {renderFooter()}
+                    {renderFooter()}
+                </NavigationTop>
+                <CssBaseline />
+
             </React.Fragment>
         );
-    }
-
-    function renderHeader() {
-        return (
-            <Toolbar className={classes.toolbar}>
-                <Button size="small">Subscribe</Button>
-                <Typography
-                    component="h2"
-                    variant="h5"
-                    color="inherit"
-                    align="center"
-                    noWrap
-                    className={classes.toolbarTitle}
-                >
-                    Blog
-                </Typography>
-                <IconButton>
-                    <SearchIcon />
-                </IconButton>
-                <Button variant="outlined" size="small">
-                    Sign up
-                </Button>
-            </Toolbar>
-        )
     }
 
     function renderPosts() {
@@ -141,7 +104,6 @@ export default function NewsFeed() {
                     <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
                         Something here to give the footer a purpose!
                     </Typography>
-                    <Copyright />
                 </Container>
             </footer>
         )
