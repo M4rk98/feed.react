@@ -24,7 +24,7 @@ export function SignInModel() {
             const {data} = await userServiceModel.postSignIn(form.data);
             store.dispatch(
                 userLogin({
-                    token: data.signUp.token,
+                    token: data.signIn.token,
                     username: form.data.username
                 }));
             return 200;

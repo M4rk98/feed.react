@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import {useSnackbar} from "notistack";
 import {SignInModel} from "./SignInModel";
 
-function SignIn() {
+function SignIn({onSubmit}) {
     const { enqueueSnackbar } = useSnackbar();
     const signInModel = SignInModel();
     const {
@@ -23,7 +23,8 @@ function SignIn() {
             return ;
         }
 
-        enqueueSnackbar('Successful registration', {variant: 'success'})
+        onSubmit();
+        enqueueSnackbar('Successful login', {variant: 'success'})
 
 
     }

@@ -9,6 +9,10 @@ import SignIn from "../page/sign_in/SignIn";
 export function NavigationTop({children}) {
     const toggle = useToggle();
 
+    function handleDialogSubmit() {
+        toggle.toggle();
+    }
+
     function render() {
         return (
             <Container maxWidth="lg">
@@ -41,10 +45,10 @@ export function NavigationTop({children}) {
 
     function renderPageDialogContent() {
         if(toggle.content === "Sign up") {
-            return <SignUp/>
+            return <SignUp onSubmit={handleDialogSubmit} />
         }
 
-        return <SignIn />
+        return <SignIn onSubmit={handleDialogSubmit} />
     }
 
     return render();

@@ -29,12 +29,8 @@ export default function NewsFeed() {
     function render() {
         return (
             <React.Fragment>
-                <NavigationTop>
-                    {renderPosts()}
-                    {renderFooter()}
-                </NavigationTop>
-                <CssBaseline />
-
+                {renderPosts()}
+                {renderFooter()}
             </React.Fragment>
         );
     }

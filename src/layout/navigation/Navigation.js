@@ -2,14 +2,18 @@ import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import React, {memo, useEffect, useState} from "react";
 import {useStyles} from "./style";
+import ReplyIcon from '@material-ui/icons/Reply'
 import Typography from "@material-ui/core/Typography";
 import {useSelector} from "react-redux";
 import {UserModel} from "../../page/UserModel";
+import { useHistory } from "react-router-dom";
+
 
 function Navigation({dialog}) {
     const classes = useStyles();
     const userModel = UserModel();
     const user = useSelector(state => state.user);
+    const history = useHistory();
     const defaultNavigationItems = [
         {
             name: 'Sign up',
@@ -24,19 +28,36 @@ function Navigation({dialog}) {
     const [navigationItems, setNavigationItems] = useState(defaultNavigationItems);
 
     useEffect(() => {
+        let nav = []
         if (user.username) {
-            setNavigationItems(
-                [
-                    {
-                        name: 'Logout',
-                        action: userModel.logout
-                    }
-                ]
-            )
+            nav = [
+                {
+                    name: 'Create a post',
+                    action: () => history.replace('/new')
+                },
+                {
+                    name: 'Logout',
+                    action: userModel.logout
+                }
+            ];
         } else {
-            setNavigationItems(defaultNavigationItems)
+            nav = defaultNavigationItems;
         }
-    }, [user]);
+
+        console.log(history.location.pathname)
+        if(history.location.pathname === '/new') {
+
+            nav.unshift(
+                {
+                    name: <ReplyIcon />,
+                    action: () => history.replace('/')
+                }
+            );
+        }
+
+        setNavigationItems(nav)
+
+    }, [user, history.location.pathname]);
 
 
 
@@ -59,7 +80,7 @@ function Navigation({dialog}) {
                     noWrap
                     className={classes.toolbarTitle}
                 >
-                    Blog
+                    NewsFeed ~ React
                 </Typography>
                 {item_components}
             </Toolbar>

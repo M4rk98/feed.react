@@ -1,4 +1,4 @@
-import {getNews} from "../api/NewsApi";
+import {createArticle, getNews} from "../api/NewsApi";
 
 export function NewsServiceModel() {
 
@@ -6,8 +6,13 @@ export function NewsServiceModel() {
         return getNews();
     }
 
+    function postCreateArticle(data) {
+        return createArticle(data)
+    }
+
     return {
-        readNews
+        readNews,
+        postCreateArticle
     }
 
 }
