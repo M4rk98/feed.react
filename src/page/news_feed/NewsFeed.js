@@ -1,5 +1,4 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -12,19 +11,14 @@ import Container from '@material-ui/core/Container';
 import {useStyles} from "./style";
 import Carousel from "../../component/carousel/Carousel";
 import {NewsFeedModel} from "./NewsFeedModel";
-import SignUp from "../sign_up/SignUp";
-import CustomDialog from "../../component/dialog/CustomDIalog";
-import {useToggle} from "../../util/hook/useToggle";
-import {NavigationTop} from "../../layout/NavigationTop";
 
 export default function NewsFeed() {
     const newsFeedModel = NewsFeedModel();
     const classes = useStyles();
-    const toggle = useToggle();
-
     const {
-        featuredPosts
+        news
     } = newsFeedModel.states;
+
 
     function render() {
         return (
@@ -51,13 +45,15 @@ export default function NewsFeed() {
     function renderFeaturedPosts() {
         return (
             <Paper className={classes.mainFeaturedPost}>
-                <Carousel />
+                <Carousel
+                />
             </Paper>
         )
     }
 
     function renderOtherPosts() {
-        return featuredPosts.map(post => (
+        console.log(news)
+        return news.map(post => (
             <Grid item key={post.title} xs={12} md={6}>
                 <CardActionArea component="a" href="#">
                     <Card className={classes.card}>

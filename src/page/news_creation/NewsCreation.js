@@ -6,9 +6,6 @@ import {TextField, Typography} from "@material-ui/core";
 import {useStyles} from "./style";
 import Button from "@material-ui/core/Button";
 import {useSnackbar} from "notistack";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
-import FormGroup from "@material-ui/core/FormGroup";
 
 function NewsCreation() {
     const user = useSelector(state => state.user);
