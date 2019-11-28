@@ -22,7 +22,6 @@ export function NewsFeedModel() {
 
     return {
         states: {
-            featuredPosts,
             news
         }
     }
