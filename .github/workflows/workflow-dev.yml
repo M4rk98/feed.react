@@ -12,6 +12,7 @@ jobs:
     with:
       environment: 'dev'
   workflow_step2:
+    runs-on: ubuntu-latest
     steps:
       - name: 'Echo'
         run: echo "The operating system on the runner is $env:RUNNER_OS. $env:API_URL"
