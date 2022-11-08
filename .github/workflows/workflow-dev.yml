@@ -8,9 +8,6 @@ env:
 
 jobs:
   workflow_v1:
-    steps:
-      id: step1
-      run: echo "The operating system on the runner is $env:RUNNER_OS. $env:API_URL"
     uses: M4rk98/feed.react/.github/workflows/code-quality.yml@master
     with:
       environment: 'dev'

@@ -19,5 +19,8 @@ jobs:
       - name: Install packages
         run: yarn
 
+      - name: Echo
+        run: echo "The operating system on the runner is $env:RUNNER_OS. $env:API_URL"
+
       - name: Build project
         run: yarn build:${{ inputs.environment || 'dev' }}
