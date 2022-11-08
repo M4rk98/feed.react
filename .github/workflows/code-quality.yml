@@ -8,6 +8,9 @@ on:
         type: string
   push:
 
+env:
+  API_URL: ${{ inputs.environment }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +23,7 @@ jobs:
         run: yarn
 
       - name: Echo
-        run: echo "The operating system on the runner is $env:RUNNER_OS. $env:API_URL"
+        run: echo "The operating system on the runner is ${{env.API_URL}}"
 
       - name: Build project
         run: yarn build:${{ inputs.environment || 'dev' }}
