@@ -5,4 +5,4 @@ on:
 
 jobs:
   workflow_v1:
-    uses: M4rk98/feed.react/.github/workflows/code-quality.yml
+    uses: M4rk98/feed.react/.github/workflows/code-quality.yml@master
