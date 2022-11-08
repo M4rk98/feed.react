@@ -1,4 +1,4 @@
-name: Deploy to Development v3
+name: Deploy to Development v4
 
 on:
   workflow_call:
@@ -24,4 +24,4 @@ jobs:
         run: yarn
 
       - name: Build project
-        run: yarn build:${{ inputs.environment }}
+        run: yarn build:${{ inputs.environment || 'dev' }}
