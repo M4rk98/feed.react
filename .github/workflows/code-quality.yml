@@ -11,6 +11,8 @@ on:
       environment:
         required: true
         type: string
+    branches-ignore:
+      - 'improvement/code-quality-check-workflow'
 
 jobs:
   build:
