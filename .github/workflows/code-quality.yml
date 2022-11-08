@@ -7,9 +7,6 @@ jobs:
   build_v1:
     runs-on: ubuntu-latest
 
-    container:
-      image: node:18.12.1
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
