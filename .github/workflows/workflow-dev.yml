@@ -15,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Echo'
-        run: echo "The operating system on the runner is $RUNNER_OS. $API_URL" + ${{ $env:API_URL }}
+        run: echo "The operating system on the runner is ${{env.API_URL}}"
