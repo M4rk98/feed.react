@@ -1,0 +1,21 @@
+name: Deploy to Development
+
+on:
+  workflow_call:
+
+jobs:
+  build_v1:
+    runs-on: ubuntu-latest
+
+    container:
+      image: node:18.12.1
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install packages
+        run: yarn
+
+      - name: Build project
+        run: yarn build
