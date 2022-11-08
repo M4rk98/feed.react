@@ -5,6 +5,7 @@ on:
 
 env:
   API_URL: 'test'
+  REPORT_URL: 'A'
 
 jobs:
   workflow_v1:

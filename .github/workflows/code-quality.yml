@@ -23,7 +23,7 @@ jobs:
         run: yarn
 
       - name: Echo
-        run: echo "The operating system on the runner is ${{env.API_URL}}"
+        run: echo "The operating system on the runner is ${{env.API_URL}} ${{env.REPORT_URL}}"
 
       - name: Build project
         run: yarn build:${{ inputs.environment || 'dev' }}
